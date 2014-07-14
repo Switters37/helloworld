@@ -6,21 +6,26 @@ import csv
 x = range(1,10)
 print x
 
-y = [(i+12*rand.random())**2 for i in x]
-z = [(i+45*rand.random())**2 for i in x]
+y = [(i+5*rand.random())**2 for i in x]
+z = [(i+16*rand.random())**2 for i in x]
 
 plt.figure()
 font = {'family': 'times new roman', 'size':16}
 plt.rc('font', **font)
-plt.plot(x,y,'.b')
-plt.plot(x,z,'.r')
+plt.plot(x,y,'.b',label='y values')
+plt.plot(x,z,'.r',label='z values')
 plt.title('x**2 with noise')
 plt.xlabel('x (seconds)')
 plt.ylabel('x**2 plus noise')
+plt.legend(loc = 'best')
 plt.show()
 
 dirname = "C:\Users\Mike\Desktop\junk"
 filename = 'sampledata.dat'
+
+if not os.path.exists(dirname):
+    os.makedirs(dirname)
+
 datalist = list()
 [datalist.append([x[i],y[i],z[i]]) for i in range(len(x))]
 
