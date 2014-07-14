@@ -6,14 +6,16 @@ import csv
 x = range(1,10)
 print x
 
-y = [(i+5*rand.random())**2 for i in x]
-z = [(i+16*rand.random())**2 for i in x]
+y = [(i+2*rand.random())**2 for i in x]
+z = [(i+4*rand.random())**2 for i in x]
 
 plt.figure()
 font = {'family': 'times new roman', 'size':16}
 plt.rc('font', **font)
 plt.plot(x,y,'.b',label='y values')
 plt.plot(x,z,'.r',label='z values')
+plt.xlim(0,10)
+plt.ylim(0,110)
 plt.title('x**2 with noise')
 plt.xlabel('x (seconds)')
 plt.ylabel('x**2 plus noise')
